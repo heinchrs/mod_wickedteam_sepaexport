@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="4.0" type="module" client="site" method="upgrade">
+	<name>WickedTeam Sepa Export</name>
+	<creationDate>08-Jun-2025</creationDate>
+	<author>Heinl Christian</author>
+	<authorEmail>heinchrs@gmail.com</authorEmail>
+	<authorUrl/>
+	<copyright>Heinl Christian, 2025</copyright>
+	<license>GNU / GPL V3</license>
+	<version>1.0.0</version>
+	<description>MOD_WICKEDTEAM_SEPAEXPORT_DESCRIPTION</description>
+	<files folder="site">
+		<folder>language</folder>
+		<folder>tmpl</folder>
+		<filename>helper.php</filename>
+		<filename>index.html</filename>
+		<filename module="mod_wickedteam_sepaexport">mod_wickedteam_sepaexport.php</filename>
+	</files>
+	<media destination="mod_wickedteam_sepaexport" folder="media">
+		<folder>css</folder>
+	</media>
+	<params/>
+	<config>
+		<fields name="params">
+			<fieldset name="basic" label="MOD_WICKEDTEAM_SEPAEXPORT_FIELDSET_BASIC">
+				<field name="club_name" type="text" label="MOD_WICKEDTEAM_SEPAEXPORT_CLUB_NAME_LABEL" description="MOD_WICKEDTEAM_SEPAEXPORT_CLUB_NAME_DESC" required="true" default="MeinVerein"/>
+				<field name="iban" type="text" label="MOD_WICKEDTEAM_SEPAEXPORT_IBAN_LABEL" description="MOD_WICKEDTEAM_SEPAEXPORT_IBAN_DESC" required="true" />
+				<field name="bic" type="text" label="MOD_WICKEDTEAM_SEPAEXPORT_BIC_LABEL" description="MOD_WICKEDTEAM_SEPAEXPORT_BIC_DESC" required="true" />
+				<field name="creditor_id" type="text" label="MOD_WICKEDTEAM_SEPAEXPORT_CREDITOR_ID_LABEL" description="MOD_WICKEDTEAM_SEPAEXPORT_CREDITOR_ID_DESC" required="true" />
+
+				<field name="wickedteam_groups" type="sql" label="MOD_WICKEDTEAM_SEPAEXPORT_GROUP_LABEL" description="MOD_WICKEDTEAM_SEPAEXPORT_GROUP_DESC" required="true" default="" query="SELECT id,title FROM #__categories WHERE extension = 'com_wickedteam.member' AND level = 2" key_field="id" value_field="title" size="5" multiple="true" />
+
+				<field name="group_fee_mapping" type="subform" formsource="/modules/mod_wickedteam_sepaexport/forms/groupfee.xml" label="MOD_WICKEDTEAM_SEPAEXPORT_GROUPFEE_LABEL" required="true" description="MOD_WICKEDTEAM_SEPAEXPORT_GROUPFEE_DESC" multiple="true" layout="joomla.form.field.subform.repeatable" buttons="add,remove" sortable="false" />
+
+				<field name="@spacer" type="spacer" default="" label="" description="" />
+				<field name="load_css" type="radio" label="MOD_WICKEDTEAM_SEPAEXPORT_LOAD_CSS_LABEL" description="MOD_WICKEDTEAM_SEPAEXPORT_LOAD_CSS_DESC" default="1">
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				<field name="moduleclass_sfx" type="text" label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL" description="COM_MODULES_FIELD_MODULECLASS_SFX_DESC" />
+				<field name="debug" type="radio" label="MOD_WICKEDTEAM_SEPAEXPORT_DEBUG_LABEL" description="MOD_WICKEDTEAM_SEPAEXPORT_DEBUG_DESC" default="0">
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+			</fieldset>
+		</fields>
+	</config>
+	<changelogurl>https://raw.githubusercontent.com/heinchrs/mod_wickedteam_sepaexport/main/.release/changelog.xml</changelogurl>
+	<updateservers>
+		<server type="extension" name="WickedTeam Birthday" priority="1">https://raw.githubusercontent.com/heinchrs/mod_wickedteam_sepaexport/main/.release/mod_wickedteam_sepaexport_update.xml</server>
+	</updateservers>
+</extension>

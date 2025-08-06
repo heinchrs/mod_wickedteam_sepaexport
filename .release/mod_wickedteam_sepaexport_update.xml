@@ -1,0 +1,15 @@
+<updates>
+	<update>
+		<name>WickedTeam SEPA Export</name>
+		<description>Module for exporting SEPA data of WickedTeam members.</description>
+		<element>mod_wickedteam_sepaexport</element>
+		<type>module</type>
+		<version>1.0.0</version>
+		<changelogurl>https://rawcdn.githack.com/heinchrs/mod_wickedteam_sepaexport/main/.release/changelog.xml</changelogurl>
+		<downloads>
+			<downloadurl type="full" format="zip">https://raw.githubusercontent.com/heinchrs/mod_wickedteam_sepaexport/main/.release/mod_wickedteam_sepaexport-v1.0.0.zip</downloadurl>
+		</downloads>
+		<targetplatform name="joomla" version="4"/>
+		<client>site</client>
+		<author>Christian Heinl</author>
+</updates>

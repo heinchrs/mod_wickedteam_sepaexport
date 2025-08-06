@@ -1,0 +1,10 @@
+<changelogs>
+	<changelog>
+		<element>mod_wickedteam_sepaexport</element>
+		<type>module</type>
+		<version>1.0.0</version>
+		<note>
+			<item>First version</item>
+		</note>
+	</changelog>
+</changelogs>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form>
+    <fields name="groupfee">
+        <field
+            name="fee_group_id"
+            type="sql"
+            label="MOD_WICKEDTEAM_SEPAEXPORT_FEE_GROUP_LABEL"
+            description="MOD_WICKEDTEAM_SEPAEXPORT_FEE_GROUP_DESC"
+            required="true"
+            query="SELECT id, title FROM #__categories WHERE extension = 'com_wickedteam.member' AND level = 2"
+            key_field="id"
+            value_field="title"
+        />
+        <field
+            name="fee_group_value"
+            type="text"
+            label="MOD_WICKEDTEAM_SEPAEXPORT_FEE_GROUP_VALUE_LABEL"
+            description="MOD_WICKEDTEAM_SEPAEXPORT_FEE_GROUP_VALUE_DESC"
+            required="true"
+            size="10"
+        />
+    </fields>
+</form>

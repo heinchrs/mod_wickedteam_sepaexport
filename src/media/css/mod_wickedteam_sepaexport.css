@@ -1,0 +1,57 @@
+.sepa-box {
+  display: flex;
+  flex-direction: column;
+  /* Richtet die Reihen untereinander aus */
+  gap: 10px;
+  /* Optional: Abstand zwischen den Reihen */
+
+  border: 2px solid #007bff;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin: 1rem 0;
+  background-color: #f8f9fa;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.sepa-box h2 {
+  margin-top: 0;
+  font-size: 1.5rem;
+  color: #007bff;
+}
+
+.sepa-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 400px;
+}
+
+.sepa-button,
+.sepa-download-button {
+  margin: 20px 0;
+  padding: 10px 20px;
+  background: #005caa;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  border-radius: 4px;
+}
+.sepa-download-button {
+  margin-bottom: 0px;
+  margin-top: 0px;
+}
+
+.sepa-button:hover,
+.sepa-download-button:hover {
+  background-color: #004080;
+  /* Dunklerer Blauton für Hover-Effekt */
+}
+
+.sepa-form input[type="date"],
+.sepa-form input[type="text"] {
+  padding: 0.5em;
+  font-size: 1em;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
