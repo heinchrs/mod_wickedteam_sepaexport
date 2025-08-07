@@ -47,6 +47,6 @@
 	</config>
 	<changelogurl>https://raw.githubusercontent.com/heinchrs/mod_wickedteam_sepaexport/main/.release/changelog.xml</changelogurl>
 	<updateservers>
-		<server type="extension" name="WickedTeam Birthday" priority="1">https://raw.githubusercontent.com/heinchrs/mod_wickedteam_sepaexport/main/.release/mod_wickedteam_sepaexport_update.xml</server>
+		<server type="extension" name="WickedTeam SEPA Export" priority="1">https://raw.githubusercontent.com/heinchrs/mod_wickedteam_sepaexport/main/.release/mod_wickedteam_sepaexport_update.xml</server>
 	</updateservers>
 </extension>
