@@ -7,4 +7,12 @@
 			<item>First version</item>
 		</note>
 	</changelog>
+	<changelog>
+		<element>mod_wickedteam_sepaexport</element>
+		<type>module</type>
+		<version>1.0.1</version>
+		<note>
+			<item>Set SQL_BIG_SELECTS to 1 to avoid errors with large datasets</item>
+		</note>
+	</changelog>
 </changelogs>
