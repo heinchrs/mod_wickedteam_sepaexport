@@ -43,7 +43,8 @@ class WickedTeamSepaexportHelper
 		// Set Debug
 		$debug = ($paramDebug == 1) ? true : false;
 
-		if ($debug) {
+		if ($debug)
+		{
 			$df = fopen(dirname(__FILE__) . DS . 'debug.txt', 'w');
 			fwrite($df, "Start Debugging at " . date('Y-m-d H:i:s') . "\n");
 			fwrite($df, "Club: " . print_r($club, true) . "\n");
@@ -55,6 +56,10 @@ class WickedTeamSepaexportHelper
 		$db = JFactory::getDbo();
 
 		$query = $db->getQuery(true);
+
+		// Set SQL_BIG_SELECTS to 1 to avoid errors with large datasets
+		$db->setQuery('SET SQL_BIG_SELECTS=1');
+		$db->execute();
 
 		$query->select(
 			[
