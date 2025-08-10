@@ -10,7 +10,7 @@
 	<property name="zipsdir" value=".release" override="true" />
 
 	<!-- Read project XML file -->
-    <xmlproperty file="${srcdir}/mod_wickedteam_sepaexport.xml"/>
+	<xmlproperty file="${srcdir}/mod_wickedteam_sepaexport.xml"/>
 
 	<!-- Fileset for site files -->
 	<fileset dir="./src" id="modfiles">
@@ -42,39 +42,44 @@
 	</fileset>
 
 	<target name="check-version-string">
-        <!-- Load XML into properties -->
-        <xmlproperty file="${zipsdir}/mod_wickedteam_sepaexport_update.xml" />
+		<!-- Load XML into properties -->
+		<xmlproperty file="${zipsdir}/mod_wickedteam_sepaexport_update.xml" />
 
-        <!-- Check if the version information is found in update XML -->
-        <if>
-            <matches string="${updates.update.version}" pattern="${extension.version}"/>
-            <then>
-                <echo>Version information ${extension.version} found in update XML!</echo>
-            </then>
-            <else>
-                <echo>*********************!!! ATTENTION !!!*************************</echo>
-                <echo>Update file does not contain information about the new version!</echo>
-                <echo>***************************************************************</echo>
-                <fail>Error during build process!</fail>
-            </else>
-        </if>
+		<!-- Check if the version information is found in update XML -->
+		<if>
+			<matches string="${updates.update.version}" pattern="${extension.version}"/>
+			<then>
+				<echo>Version information ${extension.version} found in update XML!</echo>
+			</then>
+			<else>
+				<echo>*********************!!! ATTENTION !!!*************************</echo>
+				<echo>Update file does not contain information about the new version!</echo>
+				<echo>***************************************************************</echo>
+				<fail>Error during build process!</fail>
+			</else>
+		</if>
 
-        <!-- Read changelog XML file -->
-        <xmlproperty file="${zipsdir}/changelog.xml"/>
-        <!-- Check if the version information is found in changelog XML -->
-        <if>
-            <matches string="${changelogs.changelog.version}" pattern="${extension.version}"/>
-            <then>
-                <echo>Version information ${extension.version} found in changelog XML!</echo>
-            </then>
-            <else>
-                <echo>************************!!! ATTENTION !!!*************************</echo>
-                <echo>Changelog file does not contain information about the new version!</echo>
-                <echo>******************************************************************</echo>
-                <fail>Error during build process!</fail>
-            </else>
-        </if>
-    </target>
+		<!-- Read changelog XML file -->
+		<xmlproperty file="${zipsdir}/changelog.xml"/>
+		<!-- Check if the version information is found in changelog XML -->
+		<if>
+			<matches string="${changelogs.changelog.version}" pattern="${extension.version}"/>
+			<then>
+				<echo>Version information ${extension.version} found in changelog XML!</echo>
+			</then>
+			<else>
+				<echo>************************!!! ATTENTION !!!*************************</echo>
+				<echo>Changelog file does not contain information about the new version!</echo>
+				<echo>******************************************************************</echo>
+				<fail>Error during build process!</fail>
+			</else>
+		</if>
+	</target>
+
+	<target name="git-tag" description="Create git tag and push to origin">
+		<exec command="git tag v${extension.version}" />
+		<exec command="git push origin v${extension.version}" />
+	</target>
 
 	<!-- ============================================	-->
 	<!-- Target: prepare                             	-->
@@ -88,7 +93,7 @@
 	<!-- ============================================	-->
 	<!-- (DEFAULT) Target: main							-->
 	<!-- ============================================	-->
-	<target name="main" description="main target" depends="prepare">
+	<target name="main" description="main target" depends="prepare, check-version-string, git-tag">
 
 		<!-- Copy module source files to joomla directory to show final file struture -->
 		<copy todir="${joomladir}/modules/mod_wickedteam_sepaexport">
