@@ -7,7 +7,7 @@
 	<authorUrl/>
 	<copyright>Heinl Christian, 2025</copyright>
 	<license>GNU / GPL V3</license>
-	<version>1.0.1</version>
+	<version>1.0.2</version>
 	<description>MOD_WICKEDTEAM_SEPAEXPORT_DESCRIPTION</description>
 	<files folder="site">
 		<folder>language</folder>

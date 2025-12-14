@@ -139,8 +139,7 @@ class WickedTeamSepaexportHelper
 				JFactory::getApplication()->enqueueMessage(Text::sprintf(
 					'MOD_WICKEDTEAM_SEPAEXPORT_WARNING_NO_FEE_GROUP_ASSIGNED',
 					$mitglied['Nachname'],
-					$mitglied['Vorname']
-					),
+					$mitglied['Vorname']),
 					'warning'
 				);
 
@@ -166,6 +165,7 @@ class WickedTeamSepaexportHelper
 					Text::sprintf('MOD_WICKEDTEAM_SEPAEXPORT_WARNING_INVALID_BIC_ASSIGNED', $mitglied['Nachname'] . ' ' . $mitglied['Vorname'], $mitglied['BIC']),
 					'warning'
 				);
+
 				// Skip members without invalid BIC
 				continue;
 			}
@@ -197,7 +197,9 @@ class WickedTeamSepaexportHelper
 
 			$root = $doc->createElement('Document');
 			$root->setAttribute('xmlns:xsi', "http://www.w3.org/2001/XMLSchema-instance");
-			$root->setAttribute('xmlns', 'urn:iso:std:iso:20022:tech:xsd:pain.008.001.02');
+			$root->setAttribute('xmlns', 'urn:iso:std:iso:20022:tech:xsd:pain.008.002.02');
+			$root->setAttribute('xsi:schemaLocation', 'urn:iso:std:iso:20022:tech:xsd:pain.008.002.02 pain.008.002.02.xsd');
+
 			$doc->appendChild($root);
 
 			$cstmrDrctDbtInitn = $doc->createElement('CstmrDrctDbtInitn');
@@ -251,7 +253,7 @@ class WickedTeamSepaexportHelper
 			// Add creditor ID and scheme name
 			$cdtrSchmeId = $doc->createElement('CdtrSchmeId');
 			$id          = $doc->createElement('Id');
-			$orgId       = $doc->createElement('OrgId');
+			$orgId       = $doc->createElement('PrvtId');
 			$othr        = $doc->createElement('Othr');
 			$othr->appendChild($doc->createElement('Id', trim($club['creditor_id'])));
 			$schmeNm = $doc->createElement('SchmeNm');
