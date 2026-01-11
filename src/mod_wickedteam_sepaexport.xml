@@ -34,6 +34,12 @@
 
 				<field name="group_fee_mapping" type="subform" formsource="/modules/mod_wickedteam_sepaexport/forms/groupfee.xml" label="MOD_WICKEDTEAM_SEPAEXPORT_GROUPFEE_LABEL" required="true" description="MOD_WICKEDTEAM_SEPAEXPORT_GROUPFEE_DESC" multiple="true" layout="joomla.form.field.subform.repeatable" buttons="add,remove" sortable="false" />
 
+				<field name="member_lastname" type="sql" default="" label="MOD_WICKEDTEAM_SEPAEXPORT_MEMBER_LASTNAME_LABEL" description="MOD_WICKEDTEAM_SEPAEXPORT_MEMBER_LASTNAME_DESC" required="true" query="SELECT title, id FROM #__fields WHERE context='com_wickedteam.member'" key_field="id" value_field="title"/>
+				<field name="member_firstname" type="sql" default="" label="MOD_WICKEDTEAM_SEPAEXPORT_MEMBER_FIRSTNAME_LABEL" description="MOD_WICKEDTEAM_SEPAEXPORT_MEMBER_FIRSTNAME_DESC" required="true" query="SELECT title, id FROM #__fields WHERE context='com_wickedteam.member'" key_field="id" value_field="title"/>
+				<field name="member_iban" type="sql" default="" label="MOD_WICKEDTEAM_SEPAEXPORT_MEMBER_IBAN_LABEL" description="MOD_WICKEDTEAM_SEPAEXPORT_MEMBER_IBAN_DESC" required="true" query="SELECT title, id FROM #__fields WHERE context='com_wickedteam.member'" key_field="id" value_field="title"/>
+				<field name="member_bic" type="sql" default="" label="MOD_WICKEDTEAM_SEPAEXPORT_MEMBER_BIC_LABEL" description="MOD_WICKEDTEAM_SEPAEXPORT_MEMBER_BIC_DESC" required="true" query="SELECT title, id FROM #__fields WHERE context='com_wickedteam.member'" key_field="id" value_field="title"/>
+				<field name="member_bank" type="sql" default="" label="MOD_WICKEDTEAM_SEPAEXPORT_MEMBER_BANK_LABEL" description="MOD_WICKEDTEAM_SEPAEXPORT_MEMBER_BANK_DESC" required="false" query="SELECT title, id FROM #__fields WHERE context='com_wickedteam.member'" key_field="id" value_field="title"/>
+
 				<field name="@spacer" type="spacer" default="" label="" description="" />
 				<field name="load_css" type="radio" label="MOD_WICKEDTEAM_SEPAEXPORT_LOAD_CSS_LABEL" description="MOD_WICKEDTEAM_SEPAEXPORT_LOAD_CSS_DESC" default="1">
 					<option value="0">JNO</option>

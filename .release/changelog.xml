@@ -31,6 +31,9 @@
 			<item>Folder forms missing in XML</item>
 			<item>Error in case of only one member in SEPA file</item>
 			<item>File download.php missing in XML</item>
+			<item>Added fields to select WickedTeam member fields for Lastname, Firstname, IBAN, BIC and Bank</item>
+			<item>Adjusted database query to use selected WickedTeam member fields for Lastname, Firstname, IBAN, BIC and Bank</item>
+			<item>Adjusted XML generation to use selected WickedTeam member fields for Lastname, Firstname, IBAN, BIC and Bank</item>
 		</note>
 	</changelog>
 </changelogs>

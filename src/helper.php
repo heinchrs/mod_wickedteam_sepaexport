@@ -38,6 +38,11 @@ class WickedTeamSepaexportHelper
 	public static function generateXml($club, $filePath, $params): bool
 	{
 		$paramWickedGroups = $params->get('wickedteam_groups');
+		$paramWickedMemberLastname = $params->get('member_lastname');
+		$paramWickedMemberFirstname = $params->get('member_firstname');
+		$paramWickedMemberIban = $params->get('member_iban');
+		$paramWickedMemberBic  = $params->get('member_bic');
+		$paramWickedMemberBank = $params->get('member_bank');
 		$paramDebug        = (int) $params->get('debug');
 
 		// Set Debug
@@ -86,13 +91,13 @@ class WickedTeamSepaexportHelper
 
 		// Set the FROM clause and JOINs
 		$query->from('#__wickedteam_members as a');
-		$query->leftjoin('#__wickedteam_member_category AS m ON ((m.member_id = a.id) AND (' . $categorySelection . '))'); // Aktiv oder Passiv
-		$query->leftjoin('#__fields_values as f on f.item_id=a.id and f.field_id=3');                                      // Nachname
-		$query->leftjoin('#__fields_values as h on h.item_id=a.id and h.field_id=2');                                      // Vorname
-		$query->leftjoin('#__fields_values as p ON p.item_id=a.id and p.field_id = 16');                                   // IBAN
-		$query->leftjoin('#__fields_values as q ON q.item_id=a.id and q.field_id = 17');                                   // BIC
-		$query->leftjoin('#__fields_values as s ON s.item_id=a.id and s.field_id = 13');                                   // Bank
-		$query->leftjoin('#__wickedteam_member_category AS t ON t.member_id = a.id');                                      // Kategorien
+		$query->leftjoin('#__wickedteam_member_category AS m ON ((m.member_id = a.id) AND (' . $categorySelection . '))');  // Aktiv oder Passiv
+		$query->leftjoin('#__fields_values as f on f.item_id=a.id and f.field_id = ' . $paramWickedMemberLastname);         // Nachname
+		$query->leftjoin('#__fields_values as h on h.item_id=a.id and h.field_id = ' . $paramWickedMemberFirstname);        // Vorname
+		$query->leftjoin('#__fields_values as p ON p.item_id=a.id and p.field_id = ' . $paramWickedMemberIban);             // IBAN
+		$query->leftjoin('#__fields_values as q ON q.item_id=a.id and q.field_id = ' . $paramWickedMemberBic);              // BIC
+		$query->leftjoin('#__fields_values as s ON s.item_id=a.id and s.field_id = ' . $paramWickedMemberBank);             // Bank
+		$query->leftjoin('#__wickedteam_member_category AS t ON t.member_id = a.id');                                       // Kategorien
 		$query->leftjoin('#__categories AS c ON c.id = m.catid');
 
 		$query->where('a.published = 1');
