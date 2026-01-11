@@ -29,6 +29,7 @@
 		<version>1.0.3</version>
 		<note>
 			<item>Folder forms missing in XML</item>
+			<item>Error in case of only one member in SEPA file</item>
 		</note>
 	</changelog>
 </changelogs>

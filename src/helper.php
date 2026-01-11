@@ -208,8 +208,8 @@ class WickedTeamSepaexportHelper
 			$grpHdr = $doc->createElement('GrpHdr');
 			$grpHdr->appendChild($doc->createElement('MsgId', 'MSG-' . date('YmdHis')));
 			$grpHdr->appendChild($doc->createElement('CreDtTm', date('c')));
-			$grpHdr->appendChild($doc->createElement('NbOfTxs', count($mitglieder)));
-			$totalAmount = array_sum(array_column($mitglieder, 'betrag'));
+			$grpHdr->appendChild($doc->createElement('NbOfTxs', count((array) $mitglieder)));
+			$totalAmount = array_sum(array_column((array) $mitglieder, 'betrag'));
 			$grpHdr->appendChild($doc->createElement('CtrlSum', number_format($totalAmount, 2, '.', '')));
 
 			$initgPty = $doc->createElement('InitgPty');
@@ -221,7 +221,7 @@ class WickedTeamSepaexportHelper
 			$pmtInf->appendChild($doc->createElement('PmtInfId', 'PMT-' . date('Ymd')));
 			$pmtInf->appendChild($doc->createElement('PmtMtd', 'DD'));
 			$pmtInf->appendChild($doc->createElement('BtchBookg', 'true'));
-			$pmtInf->appendChild($doc->createElement('NbOfTxs', count($mitglieder)));
+			$pmtInf->appendChild($doc->createElement('NbOfTxs', count((array) $mitglieder)));
 			$pmtInf->appendChild($doc->createElement('CtrlSum', number_format($totalAmount, 2, '.', '')));
 
 			$pmtTpInf = $doc->createElement('PmtTpInf');
