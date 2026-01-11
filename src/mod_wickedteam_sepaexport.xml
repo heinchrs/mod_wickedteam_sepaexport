@@ -14,6 +14,7 @@
 		<folder>tmpl</folder>
 		<folder>forms</folder>
 		<filename>helper.php</filename>
+		<filename>download.php</filename>
 		<filename>index.html</filename>
 		<filename module="mod_wickedteam_sepaexport">mod_wickedteam_sepaexport.php</filename>
 	</files>

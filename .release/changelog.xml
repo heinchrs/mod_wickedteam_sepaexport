@@ -30,6 +30,7 @@
 		<note>
 			<item>Folder forms missing in XML</item>
 			<item>Error in case of only one member in SEPA file</item>
+			<item>File download.php missing in XML</item>
 		</note>
 	</changelog>
 </changelogs>
