@@ -23,4 +23,12 @@
 			<item>Changed XML structure since SEPA file could not be interpreted correctly</item>
 		</note>
 	</changelog>
+	<changelog>
+		<element>mod_wickedteam_sepaexport</element>
+		<type>module</type>
+		<version>1.0.3</version>
+		<note>
+			<item>Folder forms missing in XML</item>
+		</note>
+	</changelog>
 </changelogs>
